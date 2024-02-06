@@ -8,12 +8,19 @@ It can be quite a challenge to score a great validation accuracy on each of thes
 **Data Pre-processing**
 
 We removed all special characters and changed words such as 'don't' to 'do not' and finally we fixed all irregular spaces.
+
 We initially tried to remove all stopwords to help improve the computational efficiency but we later found out that BERT performs better with these context specific words and hence removed it from the final implementation
+
 We also had to use NLPAugmentation techniques such as paraphrasing to create more datapoints for some of the minority categories.
+
 Finally, we used the tokenizer to convert our text strings into tokens to feed into the model.
 
+**MODEL SELECTION AND HYPERPARAMETER OPTIMIZATION**
 
 After extensive and exhaustive data analysis, we chose the DistilBERT transformer model for this problem.
+
 We chose BCEwithLogitsLoss because it was seamless to implement with DistilBert and is a very good choice for Binary Classification problems.
+
 The Model seemed to perform best at max of 1 or 2 epochs and would always overfit after.
+
 As for the learning rate, we were able to try a variety of learning rates ranging from 2e-5 to 5e-5. We found that somewhere between 2.5 to 3 was giving us the best results.
